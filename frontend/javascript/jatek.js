@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('newgame').addEventListener('click', async () => {
         try {
             const response = await getmethod('api/randomszo');
-            console.log(response.message);
+
             for (let i = 0; i < response.message.length; i++) {
                 const div = document.createElement('div');
                 div.innerHTML = '_';
@@ -38,7 +38,20 @@ document.addEventListener('DOMContentLoaded', () => {
             body.appendChild(megfejt);
             body.appendChild(btn1);
 
-            btn.addEventListener('click', () => {});
+            const badletters = document.createElement('div');
+            btn.addEventListener('click', () => {
+                if (input.value.length === 1) {
+                    console.log(input.value.length);
+                    console.log(response.message[0]);
+
+                    for (let i = 0; i < response.message.length; i++) {
+                        if (input.value !== response.message[i]) {
+                            badletters.innerHTML = input.value;
+                            body.appendChild(badletters);
+                        }
+                    }
+                }
+            });
         } catch (error) {
             console.error('hiba', error.message);
         }
