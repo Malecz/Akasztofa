@@ -45,9 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log(response.message[0]);
 
                     for (let i = 0; i < response.message.length; i++) {
-                        if (input.value !== response.message[i]) {
-                            badletters.innerHTML = input.value;
-                            body.appendChild(badletters);
+                        if (input.value === response.message[i]) {
                         }
                     }
                 }
