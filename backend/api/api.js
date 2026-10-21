@@ -48,7 +48,7 @@ router.post('/szavak', async (request, response) => {
     const message = body.message;
 
     array.push({
-        message: message
+        message
     });
     //console.log(array);
     response.status(200).json({

@@ -62,5 +62,11 @@ input[type='button'] {
 }
 
 .div {
-    border-bottom: 2px solid black;
+}
+
+#maindiv {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-left: 20px;
 }
