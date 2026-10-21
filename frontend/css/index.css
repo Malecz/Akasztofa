@@ -54,6 +54,14 @@ btn:hover {
     padding: 10px;
 }
 
+#newgame {
+    width: 300px;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 8px;
+    padding: 10px;
+}
+
 input[type='button'] {
     border-radius: 8px;
     padding: 10px 20px;
