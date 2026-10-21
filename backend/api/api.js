@@ -51,7 +51,7 @@ router.post('/szavak', async (request, response) => {
     });
     console.log(array);
     response.status(200).json({
-        message: 'ASD'
+        message: 'Sikeres'
     });
 });
 
