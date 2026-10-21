@@ -49,7 +49,7 @@ router.post('/szavak', async (request, response) => {
     array.push({
         message: message
     });
-    //console.log(array);
+    console.log(array);
     response.status(200).json({
         message: 'ASD'
     });
