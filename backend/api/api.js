@@ -42,6 +42,7 @@ router.get('/testsql', async (request, response) => {
 });
 
 const array = [];
+const elet = 10;
 router.post('/szavak', async (request, response) => {
     const body = request.body;
     const message = body.message;
@@ -49,9 +50,30 @@ router.post('/szavak', async (request, response) => {
     array.push({
         message: message
     });
-    console.log(array);
+    //console.log(array);
     response.status(200).json({
         message: 'Sikeres'
+    });
+});
+
+router.post('/torol', async (request, response) => {
+    const body = request.body;
+    const message = body.message;
+
+    for (let i = 0; i < array.length; i++) {
+        if (message === array[i].message) {
+            array.splice(array.indexOf(message) + 1, 1);
+        }
+    }
+
+    response.status(200).json({
+        message: 'Sikeres törlés'
+    });
+});
+
+router.get('/lista', (request, response) => {
+    response.status(200).json({
+        array
     });
 });
 

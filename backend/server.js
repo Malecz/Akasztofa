@@ -28,6 +28,10 @@ router.get('/', (request, response) => {
     response.sendFile(path.join(__dirname, '../frontend/html/index.html'));
 });
 
+router.get('/index.html', (request, response) => {
+    response.sendFile(path.join(__dirname, '../frontend/html/index.html'));
+});
+
 router.get('/szavak.html', (request, response) => {
     response.sendFile(path.join(__dirname, '../frontend/html/szavak.html'));
 });
