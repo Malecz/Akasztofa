@@ -41,4 +41,18 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
+const array = [];
+router.post('/szavak', async (request, response) => {
+    const body = request.body;
+    const message = body.message;
+
+    array.push({
+        message: message
+    });
+    //console.log(array);
+    response.status(200).json({
+        message: 'ASD'
+    });
+});
+
 module.exports = router;
