@@ -81,3 +81,9 @@ input[type='button'] {
     gap: 30px;
     margin-left: 20px;
 }
+
+.div {
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid black;
+}
