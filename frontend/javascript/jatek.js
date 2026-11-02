@@ -10,7 +10,7 @@ const getmethod = async (url) => {
     }
 };
 
-const body = document.getElementById('qwe');
+const body = document.querySelector('body');
 
 document.addEventListener('DOMContentLoaded', () => {
     let maindiv = document.getElementById('maindiv');
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     newgamebtn.addEventListener('click', async () => {
         try {
             const response = await getmethod('api/randomszo');
+            
             newgamebtn.style.display = "none"
         
             for (let i = 0; i < response.message.message.length; i++) {
@@ -33,30 +34,68 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.innerHTML = 'tippelt betű';
             body.appendChild(input);
             body.appendChild(btn);
-            const megfejt = document.createElement('input');
-            megfejt.type = 'text';
-            const btn1 = document.createElement('button');
-            btn1.innerHTML = 'megfejtés';
+            const megfejt = document.createElement('button');
+            megfejt.innerHTML = 'megfejtés';
             body.appendChild(megfejt);
-            body.appendChild(btn1);
 
             const badletters = document.createElement('div');
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', async () => {
                 if (input.value.length === 1) {
-                    console.log(input.value);
-                    console.log(response.message.message[0]);
 
-                    for (let i = 0; i < response.message.message.length; i++) {
+                    let j = 0
+                    while(j < response.message.message.length && input.value !== response.message.message[j]){
+                        j++
+                    }
+
+                    if(j < response.message.message.length){
+                        const newNode = document.createTextNode(input.value);
+                        maindiv.replaceChild(newNode, maindiv.childNodes[j])
+                    }
+                    else{
+                            const elet = await getmethod('api/elet')
+                            console.log(elet)
+                            if(elet.message === 1){
+                                const img = document.createElement('img')
+                                img.src = '../kepek/'+elet.message+".png"
+                                body.appendChild(img)
+                            }
+                            else{
+                                const img = document.createElement('img')
+                                img.src = '../kepek/'+elet.message+".png"
+                                body.removeChild(body.lastChild)
+                                body.appendChild(img)
+                            }
+
+                    }
+
+                  /*  for (let i = 0; i < response.message.message.length; i++) {
                         if (input.value === response.message.message[i]) {
                                 
-                                const newNode = document.createTextNode(input.value);
-                                maindiv.replaceChild(newNode, maindiv.childNodes[i])
-                                console.log(maindiv.children[i]) 
 
                         }
-                    }
+                        else{
+
+                        }
+                    }*/
+                    
+
+                    
+
                 }
             });
+
+            megfejt.addEventListener('click', () => {
+                if(input.value === response.message.message){
+                    for(let i = 0; i < response.message.message.length; i++){
+                        maindiv.removeChild(maindiv.children[0])
+                    }
+                        const joszo = document.createElement('div')
+                        joszo.innerHTML = input.value
+                        maindiv.appendChild(joszo)
+                        newgamebtn.style.display = "block"
+                }
+            })
+
         } catch (error) {
             console.error('hiba', error.message);
         }

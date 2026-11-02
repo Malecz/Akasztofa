@@ -11,3 +11,6 @@ GET http://127.0.0.1:3000/api/lista
 
 ###
 GET http://127.0.0.1:3000/api/randomszo
+
+###
+GET http://127.0.0.1:3000/api/elet

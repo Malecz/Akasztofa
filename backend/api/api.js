@@ -42,7 +42,7 @@ router.get('/testsql', async (request, response) => {
 });
 
 const array = [];
-const elet = 10;
+let elet = 0;
 router.post('/szavak', async (request, response) => {
     const body = request.body;
     const message = body.message;
@@ -81,6 +81,13 @@ router.get('/randomszo', (request, response) => {
     const randomszo = array[Math.floor(Math.random() * array.length)];
     response.status(200).json({
         message: randomszo
+    });
+});
+
+router.get('/elet', (request, response) => {
+    elet++
+    response.status(200).json({
+         message: elet
     });
 });
 
