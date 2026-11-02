@@ -78,6 +78,7 @@ router.get('/lista', (request, response) => {
 });
 
 router.get('/randomszo', (request, response) => {
+    elet = 0;
     const randomszo = array[Math.floor(Math.random() * array.length)];
     response.status(200).json({
         message: randomszo

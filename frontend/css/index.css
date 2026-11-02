@@ -70,14 +70,23 @@ input[type='button'] {
 }
 
 .div {
+    margin-top: 50px;
+    margin-bottom: 50px;
     width: 10px;
     height: 10px;
     border-bottom: 2px solid black;
 }
 
-#maindiv {
+.maindiv {
     display: flex;
     flex-direction: row;
     gap: 30px;
     margin-left: 20px;
+}
+
+.badbetuk{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    gap: 30px;
 }
