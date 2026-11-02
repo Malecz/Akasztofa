@@ -41,7 +41,7 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
-const array = ['szia', 'vau'];
+const array = [];
 const elet = 10;
 router.post('/szavak', async (request, response) => {
     const body = request.body;
@@ -50,7 +50,7 @@ router.post('/szavak', async (request, response) => {
     array.push({
         message
     });
-    //console.log(array);
+    console.log(array);
     response.status(200).json({
         message: 'Sikeres'
     });
@@ -79,7 +79,6 @@ router.get('/lista', (request, response) => {
 
 router.get('/randomszo', (request, response) => {
     const randomszo = array[Math.floor(Math.random() * array.length)];
-    console.log(randomszo);
     response.status(200).json({
         message: randomszo
     });

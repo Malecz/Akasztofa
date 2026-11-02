@@ -70,6 +70,9 @@ input[type='button'] {
 }
 
 .div {
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid black;
 }
 
 #maindiv {

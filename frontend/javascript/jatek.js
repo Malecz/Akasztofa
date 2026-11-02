@@ -14,13 +14,15 @@ const body = document.getElementById('qwe');
 
 document.addEventListener('DOMContentLoaded', () => {
     let maindiv = document.getElementById('maindiv');
-    document.getElementById('newgame').addEventListener('click', async () => {
+    const newgamebtn = document.getElementById('newgame')
+    newgamebtn.addEventListener('click', async () => {
         try {
             const response = await getmethod('api/randomszo');
-
-            for (let i = 0; i < response.message.length; i++) {
+            newgamebtn.style.display = "none"
+        
+            for (let i = 0; i < response.message.message.length; i++) {
                 const div = document.createElement('div');
-                div.innerHTML = '_';
+                div.innerHTML = '';
                 div.classList = 'div';
                 console.log(div);
                 maindiv.appendChild(div);
@@ -41,11 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const badletters = document.createElement('div');
             btn.addEventListener('click', () => {
                 if (input.value.length === 1) {
-                    console.log(input.value.length);
-                    console.log(response.message[0]);
+                    console.log(input.value);
+                    console.log(response.message.message[0]);
 
-                    for (let i = 0; i < response.message.length; i++) {
-                        if (input.value === response.message[i]) {
+                    for (let i = 0; i < response.message.message.length; i++) {
+                        if (input.value === response.message.message[i]) {
+                                
+                                const newNode = document.createTextNode(input.value);
+                                maindiv.replaceChild(newNode, maindiv.childNodes[i])
+                                console.log(maindiv.children[i]) 
+
                         }
                     }
                 }
